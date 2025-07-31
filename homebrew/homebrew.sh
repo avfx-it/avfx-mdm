@@ -1,37 +1,28 @@
 #!/bin/bash
 set -e
 
-# Function to check if CLT is installed
-has_clt() {
-  xcode-select -p &>/dev/null
-}
+# Check for CLT
+if ! xcode-select -p &>/dev/null; then
+  echo "📦 Installing Command Line Tools silently..."
 
-echo "🔧 Checking for Xcode Command Line Tools (CLT)..."
+  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+  CLT_PACKAGE=$(softwareupdate -l | grep -E '\*.*Command Line Tools' | head -n 1 | awk -F"* " '{print $2}' | sed 's/^ *//')
+  softwareupdate -i "$CLT_PACKAGE" --verbose
+  rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 
-if has_clt; then
-  echo "✅ Command Line Tools already installed."
+  echo "✅ Command Line Tools installed."
 else
-  echo "📦 Installing Command Line Tools..."
-  xcode-select --install
-
-  echo "⏳ Waiting for Command Line Tools installation to complete..."
-  # Wait until the tools are installed
-  until has_clt; do
-    sleep 5
-  done
-  echo "✅ Command Line Tools installation complete."
+  echo "✅ Command Line Tools already installed."
 fi
 
 echo "🍺 Installing Homebrew..."
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "🔄 Setting up Homebrew shell environment..."
-
-# Add Homebrew to PATH (for Apple Silicon)
 BREW_PREFIX="/opt/homebrew"
 if [[ ":$PATH:" != *":$BREW_PREFIX/bin:"* ]]; then
   echo "export PATH=\"$BREW_PREFIX/bin:\$PATH\"" >> ~/.zprofile
   export PATH="$BREW_PREFIX/bin:$PATH"
 fi
 
-echo "✅ Homebrew installation complete. Run 'brew doctor' to verify."
+echo "✅ Homebrew installation complete."
