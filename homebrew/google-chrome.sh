@@ -8,3 +8,5 @@ if [ -d "/Applications/Google Chrome.app" ]; then
 else
     echo "❌ Google Chrome installation failed."
 fi
+
+# Icon at https://github.com/avfx-it/avfx-mdm/blob/main/images/chrome.png
