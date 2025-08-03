@@ -1,6 +1,32 @@
 #!/bin/zsh
-echo "Checking Command Line Tools for Xcode"
-# Only run if the tools are not installed yet
+
+DIALOG="/usr/local/bin/dialog"
+
+# Launch SwiftDialog in background, locked and without quit options
+$DIALOG \
+--title none \
+--centreicon \
+--icon "https://storage.googleapis.com/avfx_public/mosyle-mdm/images/avfx.png" \
+--message "Please wait while we prepare to configure this Mac..." \
+--messagealignment center \
+--messageposition center \
+--messagefont size=32 \
+--progress 1 \
+--ontop \
+--moveable false \
+--quitoninfo false \
+--button1disabled \
+--button2disabled &
+DIALOG_PID=$!
+
+# Give dialog a moment to appear
+sleep 1
+
+###############################################################################
+## YOUR SCRIPT GOES HERE
+###############################################################################
+
+#!/bin/zsh
 # To check that try to print the SDK path
 xcode-select -p &> /dev/null
 if [ $? -ne 0 ]; then
@@ -12,3 +38,12 @@ if [ $? -ne 0 ]; then
 else
   echo "Command Line Tools for Xcode have been installed."
 fi
+
+###############################################################################
+## END OF YOUR SCRIPT
+###############################################################################
+
+# Close SwiftDialog
+kill $DIALOG_PID 2>/dev/null
+
+exit 0
