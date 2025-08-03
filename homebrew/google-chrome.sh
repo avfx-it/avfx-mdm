@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing Google Chrome..."
-brew install --cask google-chrome
+/opt/homebrew/bin/brew install --cask google-chrome
 
 # Confirm installation
 if [ -d "/Applications/Google Chrome.app" ]; then

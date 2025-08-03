@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing Adobe Acrobat Reader..."
-brew install --cask adobe-acrobat-reader
+/opt/homebrew/bin/brew install --cask adobe-acrobat-reader
 
 # Confirm installation
 if [ -d "/Applications/Adobe Acrobat Reader.app" ]; then

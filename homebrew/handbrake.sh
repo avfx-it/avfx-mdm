@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing HandBrake..."
-brew install --cask handbrake-app
+/opt/homebrew/bin/brew install --cask handbrake-app
 
 # Confirm installation
 if [ -d "/Applications/HandBrake.app" ]; then
