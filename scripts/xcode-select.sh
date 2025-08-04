@@ -13,8 +13,6 @@ $DIALOG \
 --messagefont size=32 \
 --progress 1 \
 --ontop \
---moveable false \
---quitoninfo false \
 --button1disabled \
 --button2disabled &
 DIALOG_PID=$!
