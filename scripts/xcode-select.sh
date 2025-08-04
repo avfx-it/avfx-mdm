@@ -42,4 +42,6 @@ fi
 ## END OF YOUR SCRIPT
 ###############################################################################
 
-
+# Kill SwiftDialog
+pkill -x Dialog
+exit 0
