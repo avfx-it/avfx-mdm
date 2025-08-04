@@ -43,7 +43,4 @@ fi
 ## END OF YOUR SCRIPT
 ###############################################################################
 
-# Close SwiftDialog
-kill $DIALOG_PID 2>/dev/null
-
-exit 0
+kill $DIALOG_PID
