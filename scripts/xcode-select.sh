@@ -36,10 +36,10 @@ else
   echo "Command Line Tools for Xcode have been installed."
 fi
 
+# Install Homebrew
+
 ###############################################################################
 ## END OF YOUR SCRIPT
 ###############################################################################
 
-# Kill SwiftDialog
-pkill -x Dialog
-exit 0
+
