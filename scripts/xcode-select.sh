@@ -43,10 +43,5 @@ fi
 ###############################################################################
 
 # Kill SwiftDialog
-if ps -p $DIALOG_PID > /dev/null 2>&1; then
-  kill $DIALOG_PID
-else
-  pkill -x dialog
-fi
-
+pkill -x Dialog
 exit 0
