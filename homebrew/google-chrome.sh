@@ -1,6 +1,10 @@
 #!/bin/bash
+TARGET_USER="avfx"
+HOMEBREW_PATH="/opt/homebrew/bin/brew"
+
 echo "Installing Google Chrome..."
-/opt/homebrew/bin/brew install --cask google-chrome
+
+su -l "$TARGET_USER" -c "$HOMEBREW_PATH" install --cask google-chrome
 
 # Confirm installation
 if [ -d "/Applications/Google Chrome.app" ]; then
