@@ -26,7 +26,6 @@ sleep 1
 ## YOUR SCRIPT GOES HERE
 ###############################################################################
 
-#!/bin/zsh
 # To check that try to print the SDK path
 xcode-select -p &> /dev/null
 if [ $? -ne 0 ]; then
@@ -43,4 +42,11 @@ fi
 ## END OF YOUR SCRIPT
 ###############################################################################
 
-kill $DIALOG_PID
+# Kill SwiftDialog
+if ps -p $DIALOG_PID > /dev/null 2>&1; then
+  kill $DIALOG_PID
+else
+  pkill -x dialog
+fi
+
+exit 0
