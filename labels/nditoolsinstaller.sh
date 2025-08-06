@@ -1,27 +1,6 @@
 nditoolsinstaller)
     name="NDIToolsInstaller"
     type="pkg"
-    packageID="com.newtek.Application-Mac-NDI-ScanConverter
-        com.newtek.Application-Mac-NDI-AccessManager
-        com.newtek.Application-Mac-NDI-VirtualInput
-        com.newtek.driver.NDIAudio
-        com.newtek.Application-Mac-NDI-StudioMonitor
-        0
-        com.newtek.ndi.recording
-        com.newtek.Test-Patterns-Mac-
-        com.newtek.NDIRouter
-        com.newtek.ndidiscovery
-        0
-        com.newtek.NewTek-Import-SpeedHQ
-        com.newtek.NDI-Transmit-AdobeCC
-        com.newtek.DAL.NDIplugin
-        0
-        com.newtek.DAL.NDIpluginlaunchdaemon
-        0
-        com.newtek.HAL.NDIaudioplugin
-        com.newtek.NDI.prefpane
-        com.newtek.NDI-HX-Driver
-        com.newtek.NDI-Tools"
     downloadURL="https://downloads.ndi.tv/Tools/NDIToolsInstaller.pkg"
     appNewVersion=""
     expectedTeamID="W8U66ET244"
